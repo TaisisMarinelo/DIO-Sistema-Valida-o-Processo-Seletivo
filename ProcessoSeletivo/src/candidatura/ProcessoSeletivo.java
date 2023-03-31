@@ -1,6 +1,6 @@
 package candidatura;
 
-import java.util.concurrent.ThreadLocalRandom;
+//import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
 
@@ -33,7 +33,7 @@ public class ProcessoSeletivo {
 		}
 		
 	}
-
+    /*
 	static void selecaoCandidatos() {
 		//Array contendo a lista com os nomes dos candidatos
 		
@@ -61,7 +61,7 @@ public class ProcessoSeletivo {
 	
 	static double valorPretendido() {
 		return ThreadLocalRandom.current().nextDouble(1800,2200);
-	}
+	} */
 	
 	/*static void analisarCandidato(double salarioPretendido) {
 		double salarioBase= 2000.0;
