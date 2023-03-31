@@ -1,79 +1,70 @@
 package candidatura;
 
-//import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
 
 	public static void main(String[] args) {
 		
-		/*analisarCandidato(1900.0);
-		analisarCandidato(2200.0);
-		analisarCandidato(2000.0);*/
-		
-		//selecaoCandidatos();
-		
-		imprimirSelecionados();
+		selecaoCandidatos();
 
 	}
 	
-	static void imprimirSelecionados() {
-		String [] candidatos = {"FELIPE","MÁRCIA","JULIA","PAULO","AUGUSTO"};
+	static void imprimirSelecionados(String[] cadidatosAceitos, double[] cadidatosAceitosValores) {
 		
-		System.out.println("Imprimindo a lista de candidatos informando o indice do elemento.");
-		
-		for (int i = 0; i < candidatos.length; i++) {
-			System.out.println("O candidato de número "+(i+1)+" é o "+candidatos[i]);
+		for (int i = 0; i < cadidatosAceitos.length; i++) {
+			System.out.println("O candidato de número "+(i+1)+" de nome "+cadidatosAceitos[i]+" que tem sálario pretendido de "+cadidatosAceitosValores[i]);
 			
 		}
 		
-		System.out.println("Imprimindo com for each");
-		
-		for (String candidato : candidatos) {
-			System.out.println("O candidato selecionado foi "+candidato);
-		}
 		
 	}
-    /*
+    
 	static void selecaoCandidatos() {
 		//Array contendo a lista com os nomes dos candidatos
 		
 		String [] candidatos = {"FELIPE","MÁRCIA","JULIA","PAULO","AUGUSTO","MÔNICA","FABRÍCIO","MIRELA","DANIELA","JORGE"};
-		
+		String [] cadidatosAceitos = new String [5]; 
+		double [] cadidatosAceitosValores = new double [5]; 
 		int candidatosSelecionados = 0;
 		int candidatoAtual = 0;
-		double salarioBase= 2000.0;
+		int index = 0;
 		
 		while (candidatosSelecionados < 5 && candidatoAtual < candidatos.length) {
 			String candidato = candidatos[candidatoAtual];
 			double salarioPretendido = valorPretendido();
 			
-			System.out.println("O candidado " + candidato + " solicitou este valor de salário "+salarioPretendido);
+			boolean avaliacao = analisarCandidato(salarioPretendido);
 			
-			if (salarioBase >= salarioPretendido) {
-				System.out.println("O candidado " + candidato + " foi selecionado para a vaga." );
+			if (avaliacao == true) {
+				cadidatosAceitos[index]= candidato;
+				cadidatosAceitosValores[index] = salarioPretendido;
+				index++;
 				candidatosSelecionados++;
 			}
 			candidatoAtual++;
-			
 		}
+		
+		imprimirSelecionados(cadidatosAceitos, cadidatosAceitosValores);
 
 	}
 	
 	static double valorPretendido() {
 		return ThreadLocalRandom.current().nextDouble(1800,2200);
-	} */
+	} 
 	
-	/*static void analisarCandidato(double salarioPretendido) {
+	static boolean analisarCandidato(double salarioPretendido) {
 		double salarioBase= 2000.0;
 		
 		if (salarioBase > salarioPretendido) {
-			System.out.println("LIGAR PARA O CANDIDATO.");
+			return true;
 		} else if(salarioBase == salarioPretendido){
-			System.out.println("LIGAR PARA O CANDIDATO, COM CONTRA PROPOSTA.");
+			return true;
 		}else {
-			System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS.");
+			return false;
 		}
 		
-	}*/
+		
+	}
 
 }
