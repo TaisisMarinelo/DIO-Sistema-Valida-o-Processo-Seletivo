@@ -7,12 +7,7 @@ public class ProcessoSeletivo {
 
 	public static void main(String[] args) {
 
-		//selecaoCandidatos();
-		String[] candidatos = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO"};
-		for(String cadidato: candidatos) {
-			entrandoEmContato(cadidato);
-		}
-		
+		selecaoCandidatos();
 
 	}
 	
@@ -26,8 +21,6 @@ public class ProcessoSeletivo {
 			continuaTentando = !atendeu;
 			if (continuaTentando) {
 				tentativasRealizadas++;
-			}else {
-				System.out.println("Contato Realizado com sucesso");
 			}
 			
 		} while (continuaTentando && tentativasRealizadas < 3);
@@ -50,6 +43,10 @@ public class ProcessoSeletivo {
 			System.out.println("O candidato de número " + (i + 1) + " de nome " + cadidatosAceitos[i]
 					+ " que tem sálario pretendido de " + cadidatosAceitosValores[i]);
 
+		}
+		
+		for(String cadidato: cadidatosAceitos) {
+			entrandoEmContato(cadidato);
 		}
 
 	}
